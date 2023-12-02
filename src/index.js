@@ -1,73 +1,13 @@
 import "./styles.css";
+import createDom from "./domHandler";
+import apiHandler from "./apiHandler";
 
-const DOMTree = [
-  {
-    elementType: "div",
-    elementClass: "wrapper",
-    elementId: "",
-    childElements: [
-      {
-        elementType: "div",
-        elementClass: "top-nav",
-        elementId: "",
-      },
-      {
-        elementType: "div",
-        elementClass: "main-container",
-        elementId: "",
-      },
-      {
-        elementType: "div",
-        elementClass: "footer",
-        elementId: "",
-      },
-    ],
-  },
-];
+createDom();
 
-const body = document.querySelector("body");
+const url =
+  "https://api.weatherapi.com/v1/current.json?key=027eb181bc914763a0e140125232911&q=lodndon";
 
-function createDomElements(tree, parentElement) {
-  tree.forEach((obj) => {
-    const element = document.createElement(obj.elementType);
-    element.classList.add(obj.elementClass);
-    parentElement.append(element);
-
-    if (obj.childElements) {
-      createDomElements(obj.childElements, element);
-    }
-  });
-}
-
-createDomElements(DOMTree, body);
-
-async function loadJson(url) {
-  try {
-    const response = await fetch(url, {
-      mode: "cors",
-    });
-
-    if (!response.ok) {
-      const error = new Error(`HTTP error! Status: ${response.status}`);
-      error.originalError = await response.json();
-      throw error;
-    }
-    const json = await response.json();
-    return json;
-  } catch (error) {
-    const newError = new Error(
-      `Error fetching or parsing JSON: ${error.message}`,
-    );
-    if (error.originalError) {
-      newError.originalError = error.originalError;
-    }
-    throw newError;
-  }
-}
-
-loadJson(
-  "https://api.weatherapi.com/v1/current.json?key=027eb181bc914763a0e140125232911&q=lodndon",
-)
+apiHandler(url)
   .then((json) => {
     console.log(json);
   })
