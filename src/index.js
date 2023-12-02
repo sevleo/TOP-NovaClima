@@ -48,12 +48,20 @@ async function loadJson(url) {
     });
 
     if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
+      const error = new Error(`HTTP error! Status: ${response.status}`);
+      error.originalError = await response.json();
+      throw error;
     }
     const json = await response.json();
     return json;
   } catch (error) {
-    throw new Error(`Error fetching or parsing JSON: ${error.message}`);
+    const newError = new Error(
+      `Error fetching or parsing JSON: ${error.message}`,
+    );
+    if (error.originalError) {
+      newError.originalError = error.originalError;
+    }
+    throw newError;
   }
 }
 
@@ -65,4 +73,7 @@ loadJson(
   })
   .catch((error) => {
     console.log(error.message);
+    if (error.originalError) {
+      console.log("Original error object: ", error.originalError);
+    }
   });
