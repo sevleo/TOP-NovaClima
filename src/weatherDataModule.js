@@ -31,7 +31,7 @@ const WeatherDataModule = (() => {
       e.preventDefault();
       const cityName = document.querySelector("#search");
       const url = `https://api.weatherapi.com/v1/current.json?key=027eb181bc914763a0e140125232911&q=${cityName.value}`;
-      cityName.value = "";
+      // cityName.value = "";
 
       loadJson(url)
         .then((json) => {

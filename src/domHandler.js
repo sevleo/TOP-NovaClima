@@ -54,6 +54,82 @@ const createDom = (() => {
         {
           elementType: "div",
           elementClass: "main-container",
+          childElements: [
+            {
+              elementType: "div",
+              elementClass: "location",
+              childElements: [
+                {
+                  elementType: "div",
+                  elementClass: "city",
+                },
+                {
+                  elementType: "div",
+                  elementClass: "country",
+                },
+                {
+                  elementType: "div",
+                  elementClass: "date-time",
+                },
+              ],
+            },
+            {
+              elementType: "div",
+              elementClass: "today",
+              childElements: [
+                {
+                  elementType: "div",
+                  elementClass: "current",
+                  childElements: [
+                    {
+                      elementType: "div",
+                      elementClass: "condition",
+                      childElements: [
+                        {
+                          elementType: "div",
+                          elementClass: "condition-icon",
+                        },
+                        {
+                          elementType: "div",
+                          elementClass: "condition-text",
+                        },
+                      ],
+                    },
+                    {
+                      elementType: "div",
+                      elementClass: "temperature",
+                    },
+                    {
+                      elementType: "div",
+                      elementClass: "feels-like",
+                    },
+                  ],
+                },
+                {
+                  elementType: "div",
+                  elementClass: "hourly-forecast",
+                },
+              ],
+            },
+            {
+              elementType: "div",
+              elementClass: "daily-forecast",
+              childElements: [
+                {
+                  elementType: "div",
+                  elementClass: "day-one",
+                },
+                {
+                  elementType: "div",
+                  elementClass: "day-two",
+                },
+                {
+                  elementType: "div",
+                  elementClass: "day-three",
+                },
+              ],
+            },
+          ],
         },
         {
           elementType: "div",
