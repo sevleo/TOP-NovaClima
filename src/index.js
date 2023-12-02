@@ -1,6 +1,6 @@
 import "./styles.css";
 import createDom from "./domHandler";
-import loadJson from "./loadJson";
+import loadJson from "./loadWeatherData";
 
 createDom();
 
