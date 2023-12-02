@@ -3,22 +3,61 @@ const createDom = (() => {
     {
       elementType: "div",
       elementClass: "wrapper",
-      elementId: "",
       childElements: [
         {
           elementType: "div",
           elementClass: "top-nav",
-          elementId: "",
+          childElements: [
+            {
+              elementType: "div",
+              elementClass: "form-wrapper",
+              childElements: [
+                {
+                  elementType: "form",
+                  elementClass: "search-form",
+                  childElements: [
+                    {
+                      elementType: "label",
+                      elementClass: "",
+                      elementTextContent: "Search",
+                      elementAttributes: [
+                        {
+                          attributeName: "for",
+                          attributeValue: "search",
+                        },
+                      ],
+                    },
+                    {
+                      elementType: "input",
+                      elementClass: "",
+                      elementAttributes: [
+                        {
+                          attributeName: "type",
+                          attributeValue: "text",
+                        },
+                        {
+                          attributeName: "id",
+                          attributeValue: "search",
+                        },
+                        {
+                          attributeName: "placeholder",
+                          attributeValue: "search location",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
+          ],
         },
         {
           elementType: "div",
           elementClass: "main-container",
-          elementId: "",
         },
         {
           elementType: "div",
           elementClass: "footer",
-          elementId: "",
         },
       ],
     },
@@ -26,10 +65,21 @@ const createDom = (() => {
 
   const body = document.querySelector("body");
 
+  // Create DOM elements based on the DOMTree
   function createDomElements(tree, parentElement) {
     tree.forEach((obj) => {
       const element = document.createElement(obj.elementType);
-      element.classList.add(obj.elementClass);
+      if (obj.elementClass) {
+        element.classList.add(obj.elementClass);
+      }
+      if (obj.elementAttributes) {
+        obj.elementAttributes.forEach((att) => {
+          element.setAttribute(att.attributeName, att.attributeValue);
+        });
+      }
+      if (obj.elementTextContent) {
+        element.textContent = obj.elementTextContent;
+      }
       parentElement.append(element);
 
       if (obj.childElements) {
