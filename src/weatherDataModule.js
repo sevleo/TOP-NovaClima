@@ -2,7 +2,7 @@ import createDom from "./domHandler";
 
 // The module is responsible for extracting and displaying location data
 const WeatherDataModule = (() => {
-  // Call the API to extract the weather data in json on specified location
+  // Call the API to extract the data in json
   async function loadJson(url) {
     try {
       const response = await fetch(url, {
@@ -42,7 +42,13 @@ const WeatherDataModule = (() => {
           feelsLikeF: json.current.feelslike_f,
           tempC: json.current.temp_c,
           tempF: json.current.temp_f,
+          localTime: json.location.localtime,
+          humidity: json.current.humidity,
+          visibility: json.current.vis_km,
+          cloudiness: json.current.cloud,
         };
+
+        console.log(todayWeather);
 
         createDom.deleteDynamicDomElements();
         createDom.createDynamicDomElements(
@@ -107,6 +113,7 @@ const WeatherDataModule = (() => {
   return {
     showSearchedLocationData,
     showUserLocationData,
+    showDefaultLocationData,
   };
 })();
 

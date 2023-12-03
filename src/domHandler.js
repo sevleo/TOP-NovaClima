@@ -64,6 +64,8 @@ const createDom = (() => {
   }
 
   function defineDynamicDomTree(data) {
+    const [date, time] = data.localTime.split(" ");
+
     const DOMTree = [
       {
         elementType: "div",
@@ -85,7 +87,13 @@ const createDom = (() => {
               },
               {
                 elementType: "div",
-                elementClass: "date-time",
+                elementClass: "date",
+                elementTextContent: date,
+              },
+              {
+                elementType: "div",
+                elementClass: "time",
+                elementTextContent: time,
               },
             ],
           },
@@ -103,8 +111,19 @@ const createDom = (() => {
                     childElements: [
                       {
                         elementType: "div",
-                        elementClass: "condition-icon",
-                        elementTextContent: data.conditionIcon,
+                        elementClass: "condition-icon-container",
+                        childElements: [
+                          {
+                            elementType: "img",
+                            elementClass: "condition-icon",
+                            elementAttributes: [
+                              {
+                                attributeName: "src",
+                                attributeValue: data.conditionIcon,
+                              },
+                            ],
+                          },
+                        ],
                       },
                       {
                         elementType: "div",
@@ -116,12 +135,60 @@ const createDom = (() => {
                   {
                     elementType: "div",
                     elementClass: "temperature",
-                    elementTextContent: data.tempC,
+                    elementTextContent: `${data.tempC}°C`,
                   },
                   {
                     elementType: "div",
                     elementClass: "feels-like",
-                    elementTextContent: data.feelsLikeC,
+                    elementTextContent: `Feels like ${data.feelsLikeC}°C`,
+                  },
+                  {
+                    elementType: "div",
+                    elementClass: "humidity-container",
+                    childElements: [
+                      {
+                        elementType: "div",
+                        elementClass: "humidity-label",
+                        elementTextContent: `Humidity`,
+                      },
+                      {
+                        elementType: "div",
+                        elementClass: "humidity-value",
+                        elementTextContent: `${data.humidity}`,
+                      },
+                    ],
+                  },
+                  {
+                    elementType: "div",
+                    elementClass: "visibility-container",
+                    childElements: [
+                      {
+                        elementType: "div",
+                        elementClass: "visibility-label",
+                        elementTextContent: `Visibility`,
+                      },
+                      {
+                        elementType: "div",
+                        elementClass: "visibility-value",
+                        elementTextContent: `${data.visibility}`,
+                      },
+                    ],
+                  },
+                  {
+                    elementType: "div",
+                    elementClass: "cloudiness-container",
+                    childElements: [
+                      {
+                        elementType: "div",
+                        elementClass: "cloudiness-label",
+                        elementTextContent: `Cloudiness`,
+                      },
+                      {
+                        elementType: "div",
+                        elementClass: "cloudiness-value",
+                        elementTextContent: `${data.cloudiness}`,
+                      },
+                    ],
                   },
                 ],
               },
