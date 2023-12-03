@@ -76,9 +76,37 @@ const WeatherDataModule = (() => {
     });
   }
 
+  // Show data based on determiend user's location
+  async function showUserLocationData() {
+    let ipAddress;
+    try {
+      const ipResponse = await fetch("https://api.ipify.org?format=json");
+      const ipData = await ipResponse.json();
+      ipAddress = ipData.ip;
+    } catch (error) {
+      showDefaultLocationData();
+    }
+
+    if (ipAddress) {
+      try {
+        const locationResponse = await fetch(
+          `https://ipapi.co/${ipAddress}/json/`,
+        );
+        const locationData = await locationResponse.json();
+        const { latitude, longitude } = locationData;
+        const url = `https://api.weatherapi.com/v1/current.json?key=027eb181bc914763a0e140125232911&q=${latitude},${longitude}`;
+        parseLocationData(url);
+        return;
+      } catch (error) {
+        showDefaultLocationData();
+      }
+    }
+    showDefaultLocationData();
+  }
+
   return {
     showSearchedLocationData,
-    showDefaultLocationData,
+    showUserLocationData,
   };
 })();
 
