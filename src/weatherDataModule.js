@@ -1,3 +1,5 @@
+import createDom from "./domHandler";
+
 const WeatherDataModule = (() => {
   // Call the API to extract the weather data in json on specified location
   async function loadJson(url) {
@@ -31,11 +33,29 @@ const WeatherDataModule = (() => {
       e.preventDefault();
       const cityName = document.querySelector("#search");
       const url = `https://api.weatherapi.com/v1/current.json?key=027eb181bc914763a0e140125232911&q=${cityName.value}`;
-      // cityName.value = "";
 
       loadJson(url)
         .then((json) => {
           console.log(json);
+
+          const todayWeather = {
+            city: json.location.name,
+            country: json.location.country,
+            conditionText: json.current.condition.text,
+            conditionIcon: json.current.condition.icon,
+            feelsLikeC: json.current.feelslike_c,
+            feelsLikeF: json.current.feelslike_f,
+            tempC: json.current.temp_c,
+            tempF: json.current.temp_f,
+          };
+
+          createDom.deleteDynamicDomElements();
+          createDom.createDynamicDomElements(
+            createDom.defineDynamicDomTree(todayWeather),
+            document.querySelector(".wrapper"),
+          );
+
+          console.log(todayWeather);
         })
         .catch((error) => {
           console.log(error.message);
