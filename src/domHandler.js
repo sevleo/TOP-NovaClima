@@ -104,20 +104,24 @@ const createDom = (() => {
                       {
                         elementType: "div",
                         elementClass: "condition-icon",
+                        elementTextContent: data.conditionIcon,
                       },
                       {
                         elementType: "div",
                         elementClass: "condition-text",
+                        elementTextContent: data.conditionText,
                       },
                     ],
                   },
                   {
                     elementType: "div",
                     elementClass: "temperature",
+                    elementTextContent: data.tempC,
                   },
                   {
                     elementType: "div",
                     elementClass: "feels-like",
+                    elementTextContent: data.feelsLikeC,
                   },
                 ],
               },
