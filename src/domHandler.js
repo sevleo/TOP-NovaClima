@@ -88,23 +88,14 @@ const createDom = (() => {
             childElements: [
               {
                 elementType: "div",
-                elementClass: "city",
-                elementTextContent: data.current.city,
+                elementClass: "city-country",
+                elementTextContent: `${data.current.city}, ${data.current.country}`,
               },
+
               {
                 elementType: "div",
-                elementClass: "country",
-                elementTextContent: data.current.country,
-              },
-              {
-                elementType: "div",
-                elementClass: "date",
-                elementTextContent: date,
-              },
-              {
-                elementType: "div",
-                elementClass: "time",
-                elementTextContent: time,
+                elementClass: "date-time",
+                elementTextContent: `${date} | ${time}`,
               },
             ],
           },
@@ -123,18 +114,7 @@ const createDom = (() => {
                       {
                         elementType: "div",
                         elementClass: "condition-icon-container",
-                        childElements: [
-                          {
-                            elementType: "img",
-                            elementClass: "condition-icon",
-                            elementAttributes: [
-                              {
-                                attributeName: "src",
-                                attributeValue: data.current.conditionIcon,
-                              },
-                            ],
-                          },
-                        ],
+                        elementInnerHTML: data.current.conditionIcon,
                       },
                       {
                         elementType: "div",
@@ -261,18 +241,7 @@ const createDom = (() => {
                       {
                         elementType: "div",
                         elementClass: "forecast-condition-icon-container",
-                        childElements: [
-                          {
-                            elementType: "img",
-                            elementClass: "forecast-condition-icon",
-                            elementAttributes: [
-                              {
-                                attributeName: "src",
-                                attributeValue: data.forecast[0].conditionIcon,
-                              },
-                            ],
-                          },
-                        ],
+                        elementInnerHTML: data.forecast[0].conditionIcon,
                       },
                       {
                         elementType: "div",
@@ -304,18 +273,7 @@ const createDom = (() => {
                       {
                         elementType: "div",
                         elementClass: "forecast-condition-icon-container",
-                        childElements: [
-                          {
-                            elementType: "img",
-                            elementClass: "forecast-condition-icon",
-                            elementAttributes: [
-                              {
-                                attributeName: "src",
-                                attributeValue: data.forecast[1].conditionIcon,
-                              },
-                            ],
-                          },
-                        ],
+                        elementInnerHTML: data.forecast[1].conditionIcon,
                       },
                       {
                         elementType: "div",
@@ -347,18 +305,7 @@ const createDom = (() => {
                       {
                         elementType: "div",
                         elementClass: "forecast-condition-icon-container",
-                        childElements: [
-                          {
-                            elementType: "img",
-                            elementClass: "forecast-condition-icon",
-                            elementAttributes: [
-                              {
-                                attributeName: "src",
-                                attributeValue: data.forecast[2].conditionIcon,
-                              },
-                            ],
-                          },
-                        ],
+                        elementInnerHTML: data.forecast[2].conditionIcon,
                       },
                       {
                         elementType: "div",

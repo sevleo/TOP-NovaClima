@@ -8,6 +8,6 @@ createDom.createStaticDomElements(
   document.querySelector("body"),
 );
 
-// WeatherDataModule.showDefaultLocationData();
-WeatherDataModule.showUserLocationData();
+WeatherDataModule.showDefaultLocationData();
+// WeatherDataModule.showUserLocationData();
 WeatherDataModule.showSearchedLocationData();

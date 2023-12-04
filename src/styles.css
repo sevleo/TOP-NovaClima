@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100&family=Lato:wght@300&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&family=Roboto:wght@100&family=Rubik:wght@300&display=swap");
 
-/* Styles section: */
-/* - general styles */
+/* General styles */
 
 html {
   background-color: #0089a6;
@@ -28,8 +27,7 @@ body {
   font-size: 20px;
 }
 
-/* Styles section: */
-/* - page grid layout styles */
+/* Page grid layout styles */
 
 .wrapper {
   display: grid;
@@ -55,8 +53,7 @@ body {
   grid-row: 3 / 4;
 }
 
-/* Styles section: */
-/* - search field */
+/* Search field */
 
 .search-form {
   display: flex;
@@ -113,4 +110,25 @@ body {
 
 .svg-inline-submit {
   width: 20px;
+}
+
+/* Main container styles */
+
+.location {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.location > div {
+  text-align: center;
+}
+
+.location > .city-country {
+  font-size: 30px;
+}
+
+.location > .date-time {
+  color: rgba(255, 255, 255, 0.5);
 }
