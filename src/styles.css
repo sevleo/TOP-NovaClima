@@ -1,3 +1,116 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100&family=Lato:wght@300&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&family=Roboto:wght@100&family=Rubik:wght@300&display=swap");
+
+/* Styles section: */
+/* - general styles */
+
 html {
-  background-color: skyblue;
+  background-color: #0089a6;
+}
+
+body {
+  background-image: linear-gradient(
+    to bottom,
+    #00abcf,
+    #009aba,
+    #0089a6,
+    #007891,
+    #00687e
+  );
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+  font-weight: bold;
+  color: white;
+  font-size: 20px;
+}
+
+/* Styles section: */
+/* - page grid layout styles */
+
+.wrapper {
+  display: grid;
+  min-height: 100vh;
+  grid-template-columns: 1fr minmax(0px, 500px) 1fr;
+  grid-template-rows: 60px 1fr 70px;
+  align-items: center;
+  justify-content: center;
+}
+
+.top-nav {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+}
+
+.main-container {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+
+.footer {
+  grid-column: 2 / 3;
+  grid-row: 3 / 4;
+}
+
+/* Styles section: */
+/* - search field */
+
+.search-form {
+  display: flex;
+  justify-content: center;
+}
+
+.search-form input {
+  background-color: #003945;
+  height: 40px;
+  outline: none;
+  border: 2px solid #003945;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 10px 10px 10px 16px;
+  color: white;
+  transition: border 0.3s;
+  border-right: none !important;
+  flex: 0 1 250px;
+}
+
+.search-form input::placeholder {
+  color: rgba(255, 255, 255, 0.53);
+}
+
+.search-form input:focus {
+  border-left: 2px solid white;
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+}
+
+.search-form input:focus ~ button {
+  border-right: 2px solid white;
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+}
+
+.search-submit-button {
+  margin-left: 0.5px;
+  background-color: #003945;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  outline: none;
+  border: 2px solid #003945;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  border-left: none !important;
+  cursor: pointer;
+  transition: border 0.3s;
+}
+
+.svg-inline-submit {
+  width: 20px;
 }
