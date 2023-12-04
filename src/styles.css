@@ -32,7 +32,7 @@ body {
 .wrapper {
   display: grid;
   min-height: 100vh;
-  grid-template-columns: 1fr minmax(0px, 500px) 1fr;
+  grid-template-columns: 1fr minmax(0px, 900px) 1fr;
   grid-template-rows: 60px 1fr 70px;
   align-items: center;
   justify-content: center;
@@ -119,6 +119,8 @@ body {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr;
+  justify-content: center;
+  align-items: center;
 }
 
 .location > div {
@@ -131,4 +133,37 @@ body {
 
 .location > .date-time {
   color: rgba(255, 255, 255, 0.5);
+}
+
+.current {
+  margin-top: 60px;
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
+  grid-template-rows: repeat(10, 50px);
+}
+
+.current > .condition-icon-container {
+  grid-column: 1 / 4;
+  grid-row: 1 / 4;
+  /* height: 250px; */
+  /* width: 250px; */
+}
+
+.current > .condition-text {
+  grid-column: 1 / 5;
+  grid-row: 4 / 5;
+  align-self: center;
+  justify-self: center;
+}
+
+.current > .temperature {
+  grid-column: 5 / 9;
+  grid-row: 1 / 4;
+  font-size: 70px;
+  align-self: center;
+  justify-self: center;
+}
+
+svg {
+  fill: whitesmoke;
 }

@@ -109,19 +109,13 @@ const createDom = (() => {
                 childElements: [
                   {
                     elementType: "div",
-                    elementClass: "condition",
-                    childElements: [
-                      {
-                        elementType: "div",
-                        elementClass: "condition-icon-container",
-                        elementInnerHTML: data.current.conditionIcon,
-                      },
-                      {
-                        elementType: "div",
-                        elementClass: "condition-text",
-                        elementTextContent: data.current.conditionText,
-                      },
-                    ],
+                    elementClass: "condition-icon-container",
+                    elementInnerHTML: data.current.conditionIcon,
+                  },
+                  {
+                    elementType: "div",
+                    elementClass: "condition-text",
+                    elementTextContent: data.current.conditionText,
                   },
                   {
                     elementType: "div",
