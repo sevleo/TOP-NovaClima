@@ -64,7 +64,7 @@ const createDom = (() => {
   }
 
   function defineDynamicDomTree(data) {
-    const [date, time] = data.localTime.split(" ");
+    const [date, time] = data.current.localTime.split(" ");
 
     const DOMTree = [
       {
@@ -78,12 +78,12 @@ const createDom = (() => {
               {
                 elementType: "div",
                 elementClass: "city",
-                elementTextContent: data.city,
+                elementTextContent: data.current.city,
               },
               {
                 elementType: "div",
                 elementClass: "country",
-                elementTextContent: data.country,
+                elementTextContent: data.current.country,
               },
               {
                 elementType: "div",
@@ -119,7 +119,7 @@ const createDom = (() => {
                             elementAttributes: [
                               {
                                 attributeName: "src",
-                                attributeValue: data.conditionIcon,
+                                attributeValue: data.current.conditionIcon,
                               },
                             ],
                           },
@@ -128,19 +128,19 @@ const createDom = (() => {
                       {
                         elementType: "div",
                         elementClass: "condition-text",
-                        elementTextContent: data.conditionText,
+                        elementTextContent: data.current.conditionText,
                       },
                     ],
                   },
                   {
                     elementType: "div",
                     elementClass: "temperature",
-                    elementTextContent: `${data.tempC}°C`,
+                    elementTextContent: `${data.current.tempC}°C`,
                   },
                   {
                     elementType: "div",
                     elementClass: "feels-like",
-                    elementTextContent: `Feels like ${data.feelsLikeC}°C`,
+                    elementTextContent: `Feels like ${data.current.feelsLikeC}°C`,
                   },
                   {
                     elementType: "div",
@@ -154,7 +154,7 @@ const createDom = (() => {
                       {
                         elementType: "div",
                         elementClass: "humidity-value",
-                        elementTextContent: `${data.humidity}`,
+                        elementTextContent: `${data.current.humidity}`,
                       },
                     ],
                   },
@@ -170,7 +170,7 @@ const createDom = (() => {
                       {
                         elementType: "div",
                         elementClass: "visibility-value",
-                        elementTextContent: `${data.visibility}`,
+                        elementTextContent: `${data.current.visibility}`,
                       },
                     ],
                   },
@@ -186,7 +186,39 @@ const createDom = (() => {
                       {
                         elementType: "div",
                         elementClass: "cloudiness-value",
-                        elementTextContent: `${data.cloudiness}`,
+                        elementTextContent: `${data.current.cloudiness}`,
+                      },
+                    ],
+                  },
+                  {
+                    elementType: "div",
+                    elementClass: "sunrise-container",
+                    childElements: [
+                      {
+                        elementType: "div",
+                        elementClass: "sunrise-label",
+                        elementTextContent: `Sunrise`,
+                      },
+                      {
+                        elementType: "div",
+                        elementClass: "sunrise-value",
+                        elementTextContent: `${data.current.sunrise}`,
+                      },
+                    ],
+                  },
+                  {
+                    elementType: "div",
+                    elementClass: "sunset-container",
+                    childElements: [
+                      {
+                        elementType: "div",
+                        elementClass: "sunset-label",
+                        elementTextContent: `Sunset`,
+                      },
+                      {
+                        elementType: "div",
+                        elementClass: "sunset-value",
+                        elementTextContent: `${data.current.sunset}`,
                       },
                     ],
                   },
@@ -205,14 +237,131 @@ const createDom = (() => {
               {
                 elementType: "div",
                 elementClass: "day-one",
+                childElements: [
+                  {
+                    elementType: "div",
+                    elementClass: "date",
+                    elementTextContent: data.forecast[0].date,
+                  },
+                  {
+                    elementType: "div",
+                    elementClass: "forecast-condition",
+                    childElements: [
+                      {
+                        elementType: "div",
+                        elementClass: "forecast-condition-icon-container",
+                        childElements: [
+                          {
+                            elementType: "img",
+                            elementClass: "forecast-condition-icon",
+                            elementAttributes: [
+                              {
+                                attributeName: "src",
+                                attributeValue: data.forecast[0].conditionIcon,
+                              },
+                            ],
+                          },
+                        ],
+                      },
+                      {
+                        elementType: "div",
+                        elementClass: "forecast-condition-text",
+                        elementTextContent: data.forecast[0].conditionText,
+                      },
+                    ],
+                  },
+                  {
+                    elementType: "div",
+                    elementClass: "temperature",
+                    elementTextContent: `${data.forecast[0].avgtemp_c}°C`,
+                  },
+                ],
               },
               {
                 elementType: "div",
                 elementClass: "day-two",
+                childElements: [
+                  {
+                    elementType: "div",
+                    elementClass: "date",
+                    elementTextContent: data.forecast[1].date,
+                  },
+                  {
+                    elementType: "div",
+                    elementClass: "forecast-condition",
+                    childElements: [
+                      {
+                        elementType: "div",
+                        elementClass: "forecast-condition-icon-container",
+                        childElements: [
+                          {
+                            elementType: "img",
+                            elementClass: "forecast-condition-icon",
+                            elementAttributes: [
+                              {
+                                attributeName: "src",
+                                attributeValue: data.forecast[1].conditionIcon,
+                              },
+                            ],
+                          },
+                        ],
+                      },
+                      {
+                        elementType: "div",
+                        elementClass: "forecast-condition-text",
+                        elementTextContent: data.forecast[1].conditionText,
+                      },
+                    ],
+                  },
+                  {
+                    elementType: "div",
+                    elementClass: "temperature",
+                    elementTextContent: `${data.forecast[1].avgtemp_c}°C`,
+                  },
+                ],
               },
               {
                 elementType: "div",
                 elementClass: "day-three",
+                childElements: [
+                  {
+                    elementType: "div",
+                    elementClass: "date",
+                    elementTextContent: data.forecast[2].date,
+                  },
+                  {
+                    elementType: "div",
+                    elementClass: "forecast-condition",
+                    childElements: [
+                      {
+                        elementType: "div",
+                        elementClass: "forecast-condition-icon-container",
+                        childElements: [
+                          {
+                            elementType: "img",
+                            elementClass: "forecast-condition-icon",
+                            elementAttributes: [
+                              {
+                                attributeName: "src",
+                                attributeValue: data.forecast[2].conditionIcon,
+                              },
+                            ],
+                          },
+                        ],
+                      },
+                      {
+                        elementType: "div",
+                        elementClass: "forecast-condition-text",
+                        elementTextContent: data.forecast[2].conditionText,
+                      },
+                    ],
+                  },
+                  {
+                    elementType: "div",
+                    elementClass: "temperature",
+                    elementTextContent: `${data.forecast[2].avgtemp_c}°C`,
+                  },
+                ],
               },
             ],
           },
