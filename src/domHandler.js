@@ -1,3 +1,5 @@
+import { format, parseISO } from "date-fns";
+
 const createDom = (() => {
   function defineStaticDomTree() {
     const DOMTree = [
@@ -95,7 +97,10 @@ const createDom = (() => {
               {
                 elementType: "div",
                 elementClass: "date-time",
-                elementTextContent: `${date} | ${time}`,
+                elementTextContent: `${format(
+                  parseISO(date),
+                  "iiii do 'of' MMMM y",
+                )} | ${time}`,
               },
             ],
           },
@@ -225,10 +230,6 @@ const createDom = (() => {
                   },
                 ],
               },
-              {
-                elementType: "div",
-                elementClass: "hourly-forecast",
-              },
             ],
           },
           {
@@ -242,7 +243,10 @@ const createDom = (() => {
                   {
                     elementType: "div",
                     elementClass: "date",
-                    elementTextContent: data.forecast[0].date,
+                    elementTextContent: `${format(
+                      parseISO(data.forecast[0].date),
+                      "iiii",
+                    )}`,
                   },
                   {
                     elementType: "div",
@@ -274,7 +278,10 @@ const createDom = (() => {
                   {
                     elementType: "div",
                     elementClass: "date",
-                    elementTextContent: data.forecast[1].date,
+                    elementTextContent: `${format(
+                      parseISO(data.forecast[1].date),
+                      "iiii",
+                    )}`,
                   },
                   {
                     elementType: "div",
@@ -306,7 +313,10 @@ const createDom = (() => {
                   {
                     elementType: "div",
                     elementClass: "date",
-                    elementTextContent: data.forecast[2].date,
+                    elementTextContent: `${format(
+                      parseISO(data.forecast[2].date),
+                      "iiii",
+                    )}`,
                   },
                   {
                     elementType: "div",
