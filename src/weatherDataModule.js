@@ -1,4 +1,4 @@
-import createDom from "./domHandler";
+import manageDom from "./domHandler";
 
 // The module is responsible for extracting and displaying location data
 const WeatherDataModule = (() => {
@@ -186,11 +186,11 @@ const WeatherDataModule = (() => {
           ],
         };
 
-        console.log(todayWeather);
-
-        createDom.deleteDynamicDomElements();
-        createDom.createDynamicDomElements(
-          createDom.defineDynamicDomTree(todayWeather),
+        // console.log(todayWeather);
+        manageDom.deleteError();
+        manageDom.deleteDynamicDomElements();
+        manageDom.createDynamicDomElements(
+          manageDom.defineDynamicDomTree(todayWeather),
           document.querySelector(".wrapper"),
         );
         loader.classList.remove("shown");
@@ -200,6 +200,9 @@ const WeatherDataModule = (() => {
         if (error.originalError) {
           console.log("Original error object: ", error.originalError);
         }
+        manageDom.deleteDynamicDomElements();
+        manageDom.deleteError();
+        manageDom.createError();
         loader.classList.remove("shown");
       });
   }

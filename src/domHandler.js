@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { format, parseISO } from "date-fns";
 
-const createDom = (() => {
+const manageDom = (() => {
   function defineStaticDomTree() {
     const DOMTree = [
       {
@@ -429,13 +429,30 @@ const createDom = (() => {
     }
   }
 
+  function createError() {
+    const wrapper = document.querySelector(".wrapper");
+    const errorDiv = document.createElement("div");
+    errorDiv.classList.add("error");
+    errorDiv.textContent = "Something went wrong!";
+    wrapper.append(errorDiv);
+  }
+
+  function deleteError() {
+    const error = document.querySelector(".error");
+    if (error) {
+      error.remove();
+    }
+  }
+
   return {
     defineStaticDomTree,
     defineDynamicDomTree,
     createStaticDomElements,
     createDynamicDomElements,
     deleteDynamicDomElements,
+    createError,
+    deleteError,
   };
 })();
 
-export default createDom;
+export default manageDom;
