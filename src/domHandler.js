@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { format, parseISO } from "date-fns";
 
 const createDom = (() => {
@@ -250,24 +251,18 @@ const createDom = (() => {
                   },
                   {
                     elementType: "div",
-                    elementClass: "forecast-condition",
-                    childElements: [
-                      {
-                        elementType: "div",
-                        elementClass: "forecast-condition-icon-container",
-                        elementInnerHTML: data.forecast[0].conditionIcon,
-                      },
-                      {
-                        elementType: "div",
-                        elementClass: "forecast-condition-text",
-                        elementTextContent: data.forecast[0].conditionText,
-                      },
-                    ],
+                    elementClass: "forecast-condition-icon-container",
+                    elementInnerHTML: data.forecast[0].conditionIcon,
                   },
                   {
                     elementType: "div",
                     elementClass: "temperature",
                     elementTextContent: `${data.forecast[0].avgtemp_c}°C`,
+                  },
+                  {
+                    elementType: "div",
+                    elementClass: "forecast-condition-text",
+                    elementTextContent: data.forecast[0].conditionText,
                   },
                 ],
               },
@@ -285,24 +280,18 @@ const createDom = (() => {
                   },
                   {
                     elementType: "div",
-                    elementClass: "forecast-condition",
-                    childElements: [
-                      {
-                        elementType: "div",
-                        elementClass: "forecast-condition-icon-container",
-                        elementInnerHTML: data.forecast[1].conditionIcon,
-                      },
-                      {
-                        elementType: "div",
-                        elementClass: "forecast-condition-text",
-                        elementTextContent: data.forecast[1].conditionText,
-                      },
-                    ],
+                    elementClass: "forecast-condition-icon-container",
+                    elementInnerHTML: data.forecast[1].conditionIcon,
                   },
                   {
                     elementType: "div",
                     elementClass: "temperature",
                     elementTextContent: `${data.forecast[1].avgtemp_c}°C`,
+                  },
+                  {
+                    elementType: "div",
+                    elementClass: "forecast-condition-text",
+                    elementTextContent: data.forecast[1].conditionText,
                   },
                 ],
               },
@@ -320,24 +309,18 @@ const createDom = (() => {
                   },
                   {
                     elementType: "div",
-                    elementClass: "forecast-condition",
-                    childElements: [
-                      {
-                        elementType: "div",
-                        elementClass: "forecast-condition-icon-container",
-                        elementInnerHTML: data.forecast[2].conditionIcon,
-                      },
-                      {
-                        elementType: "div",
-                        elementClass: "forecast-condition-text",
-                        elementTextContent: data.forecast[2].conditionText,
-                      },
-                    ],
+                    elementClass: "forecast-condition-icon-container",
+                    elementInnerHTML: data.forecast[2].conditionIcon,
                   },
                   {
                     elementType: "div",
                     elementClass: "temperature",
                     elementTextContent: `${data.forecast[2].avgtemp_c}°C`,
+                  },
+                  {
+                    elementType: "div",
+                    elementClass: "forecast-condition-text",
+                    elementTextContent: data.forecast[2].conditionText,
                   },
                 ],
               },
