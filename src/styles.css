@@ -389,6 +389,11 @@ svg {
   align-items: center;
 }
 
+.forecast-condition-icon-container > svg {
+  height: 40px;
+  width: 40px;
+}
+
 @media (max-height: 400px) {
   .current {
     /* margin-top: 5vh; */
