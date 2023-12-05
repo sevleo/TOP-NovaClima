@@ -59,7 +59,7 @@ body {
   grid-row: 3 / 4;
 }
 
-/* Search field */
+/* Top Nav area */
 
 .form-wrapper {
   display: flex;
@@ -148,6 +148,42 @@ body {
 
 .svg-inline-submit {
   width: 20px;
+}
+
+.temp-units {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.temp-units > div {
+  width: 40px;
+  background-color: #003945;
+  height: 40px;
+  /* text-align: center; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: all 0.3s;
+  border: 2px solid #003945;
+}
+
+.temp-units > div.selected {
+  border: 2px solid white;
+}
+
+.temp-units > div:hover {
+  cursor: pointer;
+  border: 2px solid white;
+}
+
+.logo {
+  padding-left: 10px;
+  font-size: min(4vw, 40px);
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
 }
 
 /* Main container styles */
