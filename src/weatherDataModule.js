@@ -116,6 +116,8 @@ const WeatherDataModule = (() => {
 
   // Helper function processing json and parsing data
   function parseLocationData(url) {
+    const loader = document.querySelector(".loader");
+    loader.classList.add("shown");
     loadJson(url)
       .then((json) => {
         console.log(json);
@@ -191,12 +193,14 @@ const WeatherDataModule = (() => {
           createDom.defineDynamicDomTree(todayWeather),
           document.querySelector(".wrapper"),
         );
+        loader.classList.remove("shown");
       })
       .catch((error) => {
         console.log(error.message);
         if (error.originalError) {
           console.log("Original error object: ", error.originalError);
         }
+        loader.classList.remove("shown");
       });
   }
 

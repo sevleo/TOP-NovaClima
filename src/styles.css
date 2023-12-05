@@ -59,6 +59,37 @@ body {
 
 /* Search field */
 
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* margin-top: 40px; */
+}
+
+.loader {
+  width: 50px;
+  height: 50px;
+  order: 2;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  display: none;
+  top: 50px;
+}
+
+.loader.shown {
+  width: 40px;
+  height: 40px;
+  order: 2;
+  display: block;
+  position: absolute;
+}
+
+.loader.shown * {
+  fill: white;
+}
+
 .search-form {
   display: flex;
   justify-content: center;
@@ -119,7 +150,7 @@ body {
 /* Main container styles */
 
 .location {
-  /* margin-top: 20px; */
+  margin-top: 30px;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr;
@@ -159,13 +190,13 @@ body {
   grid-row: 4 / 5;
   align-self: flex-start;
   /* justify-self: center; */
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .current > .feels-like {
   grid-column: 1 / 4;
   grid-row: 4 / 5;
-  font-size: 16px;
+  font-size: 14px;
   align-self: flex-end;
   color: var(--secondary-font-color);
 }
@@ -173,7 +204,7 @@ body {
 .current > .temperature {
   grid-column: 2 / 4;
   grid-row: 2 / 4;
-  font-size: 70px;
+  font-size: 50px;
   align-self: center;
   justify-self: center;
   font-weight: 300;
@@ -225,7 +256,7 @@ body {
 .current > .sunrise-container > div:first-child,
 .current > .sunset-container > div:first-child,
 .current > .moon-illumination-container > div:first-child {
-  font-size: 16px;
+  font-size: 14px;
   color: var(--secondary-font-color);
 }
 
@@ -235,7 +266,7 @@ body {
 .current > .sunrise-container > div:last-child,
 .current > .sunset-container > div:last-child,
 .current > .moon-illumination-container > div:last-child {
-  font-size: 20px;
+  font-size: 16px;
   /* color: var(--secondary-font-color); */
 }
 
@@ -316,6 +347,15 @@ svg {
   align-items: center;
 }
 
+@media (max-height: 400px) {
+  .current {
+    /* margin-top: 5vh; */
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(4, 40px);
+  }
+}
+
 @media (max-width: 800px) {
   .wrapper {
     display: grid;
@@ -327,7 +367,7 @@ svg {
   }
 
   .current {
-    margin-top: 20px;
+    /* margin-top: 20px; */
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(8, 50px);
