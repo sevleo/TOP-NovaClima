@@ -11,3 +11,4 @@ createDom.createStaticDomElements(
 WeatherDataModule.showDefaultLocationData();
 // WeatherDataModule.showUserLocationData();
 WeatherDataModule.showSearchedLocationData();
+WeatherDataModule.handleUnitOfMeasurementClick();

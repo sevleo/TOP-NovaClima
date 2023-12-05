@@ -253,10 +253,53 @@ const WeatherDataModule = (() => {
     showDefaultLocationData();
   }
 
+  let unitOfMeasurement = "C";
+  function changeUnitOfMeasurement(value) {
+    unitOfMeasurement = value;
+  }
+
+  function handleUnitOfMeasurementClick() {
+    const celciusButton = document.querySelector("#celcius");
+    const fahrenheitButton = document.querySelector("#fahrenheit");
+
+    celciusButton.addEventListener("click", () => {
+      if (!celciusButton.classList.contains("selected")) {
+        celciusButton.classList.toggle("selected");
+        fahrenheitButton.classList.toggle("selected");
+        changeUnitOfMeasurement("C");
+        const fFields = document.querySelectorAll('[unit="F"]');
+        const cFields = document.querySelectorAll('[unit="C"]');
+        cFields.forEach((field) => {
+          field.removeAttribute("hidden");
+        });
+        fFields.forEach((field) => {
+          field.setAttribute("hidden", "true");
+        });
+      }
+    });
+    fahrenheitButton.addEventListener("click", () => {
+      if (!fahrenheitButton.classList.contains("selected")) {
+        celciusButton.classList.toggle("selected");
+        fahrenheitButton.classList.toggle("selected");
+        changeUnitOfMeasurement("F");
+        const fFields = document.querySelectorAll('[unit="F"]');
+        const cFields = document.querySelectorAll('[unit="C"]');
+        fFields.forEach((field) => {
+          field.removeAttribute("hidden");
+        });
+        cFields.forEach((field) => {
+          field.setAttribute("hidden", "true");
+        });
+      }
+    });
+  }
+
   return {
     showSearchedLocationData,
     showUserLocationData,
     showDefaultLocationData,
+    handleUnitOfMeasurementClick,
+    unitOfMeasurement,
   };
 })();
 

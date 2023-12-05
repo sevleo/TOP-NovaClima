@@ -14,6 +14,11 @@ const manageDom = (() => {
             childElements: [
               {
                 elementType: "div",
+                elementClass: "logo",
+                elementTextContent: "NovaClima",
+              },
+              {
+                elementType: "div",
                 elementClass: "form-wrapper",
                 childElements: [
                   {
@@ -119,6 +124,34 @@ const manageDom = (() => {
                   },
                 ],
               },
+              {
+                elementType: "div",
+                elementClass: "temp-units",
+                childElements: [
+                  {
+                    elementType: "div",
+                    elementClass: "selected",
+                    elementTextContent: "°C",
+                    elementAttributes: [
+                      {
+                        attributeName: "id",
+                        attributeValue: "celcius",
+                      },
+                    ],
+                  },
+                  {
+                    elementType: "div",
+                    elementClass: "",
+                    elementTextContent: "°F",
+                    elementAttributes: [
+                      {
+                        attributeName: "id",
+                        attributeValue: "fahrenheit",
+                      },
+                    ],
+                  },
+                ],
+              },
             ],
           },
           {
@@ -182,11 +215,53 @@ const manageDom = (() => {
                     elementType: "div",
                     elementClass: "temperature",
                     elementTextContent: `${data.current.tempC}°C`,
+                    elementAttributes: [
+                      {
+                        attributeName: "unit",
+                        attributeValue: "C",
+                      },
+                    ],
+                  },
+                  {
+                    elementType: "div",
+                    elementClass: "temperature",
+                    elementTextContent: `${data.current.tempF}°F`,
+                    elementAttributes: [
+                      {
+                        attributeName: "unit",
+                        attributeValue: "F",
+                      },
+                      {
+                        attributeName: "hidden",
+                        attributeValue: "true",
+                      },
+                    ],
                   },
                   {
                     elementType: "div",
                     elementClass: "feels-like",
                     elementTextContent: `Feels like ${data.current.feelsLikeC}°C`,
+                    elementAttributes: [
+                      {
+                        attributeName: "unit",
+                        attributeValue: "C",
+                      },
+                    ],
+                  },
+                  {
+                    elementType: "div",
+                    elementClass: "feels-like",
+                    elementTextContent: `Feels like ${data.current.feelsLikeF}°F`,
+                    elementAttributes: [
+                      {
+                        attributeName: "unit",
+                        attributeValue: "F",
+                      },
+                      {
+                        attributeName: "hidden",
+                        attributeValue: "true",
+                      },
+                    ],
                   },
                   {
                     elementType: "div",
@@ -313,6 +388,27 @@ const manageDom = (() => {
                     elementType: "div",
                     elementClass: "temperature",
                     elementTextContent: `${data.forecast[0].avgtemp_c}°C`,
+                    elementAttributes: [
+                      {
+                        attributeName: "unit",
+                        attributeValue: "C",
+                      },
+                    ],
+                  },
+                  {
+                    elementType: "div",
+                    elementClass: "temperature",
+                    elementTextContent: `${data.forecast[0].avgtemp_f}°F`,
+                    elementAttributes: [
+                      {
+                        attributeName: "unit",
+                        attributeValue: "F",
+                      },
+                      {
+                        attributeName: "hidden",
+                        attributeValue: "true",
+                      },
+                    ],
                   },
                   {
                     elementType: "div",
@@ -342,6 +438,27 @@ const manageDom = (() => {
                     elementType: "div",
                     elementClass: "temperature",
                     elementTextContent: `${data.forecast[1].avgtemp_c}°C`,
+                    elementAttributes: [
+                      {
+                        attributeName: "unit",
+                        attributeValue: "C",
+                      },
+                    ],
+                  },
+                  {
+                    elementType: "div",
+                    elementClass: "temperature",
+                    elementTextContent: `${data.forecast[1].avgtemp_f}°F`,
+                    elementAttributes: [
+                      {
+                        attributeName: "unit",
+                        attributeValue: "F",
+                      },
+                      {
+                        attributeName: "hidden",
+                        attributeValue: "true",
+                      },
+                    ],
                   },
                   {
                     elementType: "div",
@@ -371,6 +488,27 @@ const manageDom = (() => {
                     elementType: "div",
                     elementClass: "temperature",
                     elementTextContent: `${data.forecast[2].avgtemp_c}°C`,
+                    elementAttributes: [
+                      {
+                        attributeName: "unit",
+                        attributeValue: "C",
+                      },
+                    ],
+                  },
+                  {
+                    elementType: "div",
+                    elementClass: "temperature",
+                    elementTextContent: `${data.forecast[2].avgtemp_f}°F`,
+                    elementAttributes: [
+                      {
+                        attributeName: "unit",
+                        attributeValue: "F",
+                      },
+                      {
+                        attributeName: "hidden",
+                        attributeValue: "true",
+                      },
+                    ],
                   },
                   {
                     elementType: "div",
