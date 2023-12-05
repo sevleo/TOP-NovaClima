@@ -140,6 +140,8 @@ const WeatherDataModule = (() => {
             cloudiness: json.current.cloud,
             sunrise: json.forecast.forecastday[0].astro.sunrise,
             sunset: json.forecast.forecastday[0].astro.sunset,
+            moonIllumination:
+              json.forecast.forecastday[0].astro.moon_illumination,
             isDay: json.current.is_day,
           },
           forecast: [

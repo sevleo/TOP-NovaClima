@@ -139,7 +139,7 @@ const createDom = (() => {
                       {
                         elementType: "div",
                         elementClass: "humidity-value",
-                        elementTextContent: `${data.current.humidity}`,
+                        elementTextContent: `${data.current.humidity}%`,
                       },
                     ],
                   },
@@ -155,7 +155,7 @@ const createDom = (() => {
                       {
                         elementType: "div",
                         elementClass: "visibility-value",
-                        elementTextContent: `${data.current.visibility}`,
+                        elementTextContent: `${data.current.visibility}km`,
                       },
                     ],
                   },
@@ -171,7 +171,23 @@ const createDom = (() => {
                       {
                         elementType: "div",
                         elementClass: "cloudiness-value",
-                        elementTextContent: `${data.current.cloudiness}`,
+                        elementTextContent: `${data.current.cloudiness}%`,
+                      },
+                    ],
+                  },
+                  {
+                    elementType: "div",
+                    elementClass: "moon-illumination-container",
+                    childElements: [
+                      {
+                        elementType: "div",
+                        elementClass: "moon-illumination-label",
+                        elementTextContent: `Moon Illumination`,
+                      },
+                      {
+                        elementType: "div",
+                        elementClass: "moon-illumination-value",
+                        elementTextContent: `${data.current.moonIllumination}%`,
                       },
                     ],
                   },
