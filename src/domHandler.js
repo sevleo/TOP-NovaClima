@@ -467,56 +467,56 @@ const manageDom = (() => {
                   },
                 ],
               },
-              {
-                elementType: "div",
-                elementClass: "day-three",
-                childElements: [
-                  {
-                    elementType: "div",
-                    elementClass: "date",
-                    elementTextContent: `${format(
-                      parseISO(data.forecast[2].date),
-                      "iiii",
-                    )}`,
-                  },
-                  {
-                    elementType: "div",
-                    elementClass: "forecast-condition-icon-container",
-                    elementInnerHTML: data.forecast[2].conditionIcon,
-                  },
-                  {
-                    elementType: "div",
-                    elementClass: "temperature",
-                    elementTextContent: `${data.forecast[2].avgtemp_c}°C`,
-                    elementAttributes: [
-                      {
-                        attributeName: "unit",
-                        attributeValue: "C",
-                      },
-                    ],
-                  },
-                  {
-                    elementType: "div",
-                    elementClass: "temperature",
-                    elementTextContent: `${data.forecast[2].avgtemp_f}°F`,
-                    elementAttributes: [
-                      {
-                        attributeName: "unit",
-                        attributeValue: "F",
-                      },
-                      {
-                        attributeName: "hidden",
-                        attributeValue: "true",
-                      },
-                    ],
-                  },
-                  {
-                    elementType: "div",
-                    elementClass: "forecast-condition-text",
-                    elementTextContent: data.forecast[2].conditionText,
-                  },
-                ],
-              },
+              // {
+              //   elementType: "div",
+              //   elementClass: "day-three",
+              //   childElements: [
+              //     {
+              //       elementType: "div",
+              //       elementClass: "date",
+              //       elementTextContent: `${format(
+              //         parseISO(data.forecast[2].date),
+              //         "iiii",
+              //       )}`,
+              //     },
+              //     {
+              //       elementType: "div",
+              //       elementClass: "forecast-condition-icon-container",
+              //       elementInnerHTML: data.forecast[2].conditionIcon,
+              //     },
+              //     {
+              //       elementType: "div",
+              //       elementClass: "temperature",
+              //       elementTextContent: `${data.forecast[2].avgtemp_c}°C`,
+              //       elementAttributes: [
+              //         {
+              //           attributeName: "unit",
+              //           attributeValue: "C",
+              //         },
+              //       ],
+              //     },
+              //     {
+              //       elementType: "div",
+              //       elementClass: "temperature",
+              //       elementTextContent: `${data.forecast[2].avgtemp_f}°F`,
+              //       elementAttributes: [
+              //         {
+              //           attributeName: "unit",
+              //           attributeValue: "F",
+              //         },
+              //         {
+              //           attributeName: "hidden",
+              //           attributeValue: "true",
+              //         },
+              //       ],
+              //     },
+              //     {
+              //       elementType: "div",
+              //       elementClass: "forecast-condition-text",
+              //       elementTextContent: data.forecast[2].conditionText,
+              //     },
+              //   ],
+              // },
             ],
           },
         ],

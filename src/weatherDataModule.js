@@ -171,18 +171,18 @@ const WeatherDataModule = (() => {
               avgtemp_c: json.forecast.forecastday[2].day.avgtemp_c,
               avgtemp_f: json.forecast.forecastday[2].day.avgtemp_f,
             },
-            {
-              day: "fourth day",
-              date: json.forecast.forecastday[3].date,
-              conditionIcon: getIcon(
-                json.forecast.forecastday[3].day.condition.code,
-                1,
-              ),
-              conditionText: json.forecast.forecastday[3].day.condition.text,
-              conditionCode: json.forecast.forecastday[3].day.condition.code,
-              avgtemp_c: json.forecast.forecastday[3].day.avgtemp_c,
-              avgtemp_f: json.forecast.forecastday[3].day.avgtemp_f,
-            },
+            // {
+            //   day: "fourth day",
+            //   date: json.forecast.forecastday[3].date,
+            //   conditionIcon: getIcon(
+            //     json.forecast.forecastday[3].day.condition.code,
+            //     1,
+            //   ),
+            //   conditionText: json.forecast.forecastday[3].day.condition.text,
+            //   conditionCode: json.forecast.forecastday[3].day.condition.code,
+            //   avgtemp_c: json.forecast.forecastday[3].day.avgtemp_c,
+            //   avgtemp_f: json.forecast.forecastday[3].day.avgtemp_f,
+            // },
           ],
         };
 
@@ -197,6 +197,7 @@ const WeatherDataModule = (() => {
       })
       .catch((error) => {
         console.log(error.message);
+        console.log(error);
         if (error.originalError) {
           console.log("Original error object: ", error.originalError);
         }
