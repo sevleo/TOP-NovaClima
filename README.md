@@ -11,7 +11,7 @@ NovaClima is a weather app I built to practice using APIs. It helps you check th
 
 ## Demo
 
-You can view the project at [NovaClima](https://sevleo.github.io/NovaClima/).
+You can view the project at [NovaClima](https://sevleo.github.io/TOP-NovaClima/).
 
 ![Home page screenshot](screenshot.png)
 
